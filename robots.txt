@@ -1,0 +1,15 @@
+# robots.txt for Fidelity Law & Development Indonesia
+
+User-agent: *
+Allow: /
+
+# Disallow admin and system files
+Disallow: /handler.php
+Disallow: /uploads/
+Disallow: /leads.csv
+
+# Sitemap location
+Sitemap: https://fidelitylaw.com/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
