@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Meta Tags -->
+    <title>Fidelity Law & Development Indonesia | Юридичний супровід девелоперських проектів на Балі</title>
+    <meta name="description" content="Повний комплекс юридичних послуг для девелоперів та інвесторів на Балі. Due diligence, супровід угод, отримання дозволів.">
+    <meta name="keywords" content="юридичні послуги Балі, девелопмент Індонезія, due diligence, будівництво вілл, інвестиції нерухомість">
+    
+    <!-- Favicon using emoji -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚖️</text></svg>">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #1a4731;
+            --primary-dark: #0f2b1f;
+            --primary-light: #2d6b4a;
+            --secondary: #d4af37;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --bg-light: #ffffff;
+            --bg-gray: #f8f9fa;
+            --border: #e9ecef;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.05);
+            --gradient: linear-gradient(135deg, #1a4731 0%, #2d6b4a 100%);
+            --radius: 12px;
+            --telegram-blue: #0088cc;
+            --manager-green: #25D366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Floating Action Buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+        }
+
+        .floating-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .floating-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .floating-btn.telegram {
+            background: var(--telegram-blue);
+        }
+
+        .floating-btn.manager {
+            background: var(--manager-green);
+        }
+
+        .floating-btn i {
+            font-size: 1.5rem;
+            z-index: 1;
+        }
+
+        .floating-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .floating-btn:hover::before {
+            width: 100px;
+            height: 100px;
+        }
+
+        .floating-tooltip {
+            position: absolute;
+            right: 70px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--text-dark);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            white-space: nowrap;
+            font-size: 0.9rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .floating-btn:hover .floating-tooltip {
+            opacity: 1;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .lang-btn {
+            padding: 0.3rem 0.6rem;
+            border: 1px solid var(--border);
+            background: transparent;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active,
+        .lang-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: var(--radius);
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 3px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, #1a4731 0%, #2d6b4a 100%);
+            margin-top: 70px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,208C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: var(--radius);
+            border: 2px solid white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-subtitle {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .service-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .service-description {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Advantages Section */
+        .advantages {
+            padding: 80px 0;
+            background: var(--bg-gray);
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .advantage-card {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .advantage-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .advantage-card:hover .advantage-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .advantage-card h3 {
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+
+        .advantage-card p {
+            color: var(--text-light);
+            max-width: 100%;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .team-member {
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius);
+            background: white;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .team-photo {
+            width: 100%;
+            height: 350px;
+            background: var(--gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-photo i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 5rem;
+            color: white;
+            opacity: 0.3;
+        }
+
+        .team-info {
+            padding: 25px;
+        }
+
+        .team-name {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+
+        .team-position {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .team-bio {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: var(--bg-gray);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+
+        .contact-text p {
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .contact-text a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 71, 49, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: start;
+            margin-bottom: 20px;
+        }
+
+        .form-checkbox input {
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+
+        .form-checkbox label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-column p,
+        .footer-column ul {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(0, 136, 204, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 136, 204, 0);
+            }
+        }
+
+        .floating-btn.telegram {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                flex-direction: column;
+                background: white;
+                padding: 20px;
+                box-shadow: var(--shadow);
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .services-grid,
+            .advantages-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .floating-buttons {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .floating-btn i {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Action Buttons -->
+    <div class="floating-buttons">
+        <a href="https://t.me/FidelityBali_bot" target="_blank" class="floating-btn telegram">
+            <i class="fab fa-telegram-plane"></i>
+            <span class="floating-tooltip">Telegram Bot</span>
+        </a>
+        <a href="https://t.me/daria_lawyer_bali" target="_blank" class="floating-btn manager">
+            <i class="fas fa-user-tie"></i>
+            <span class="floating-tooltip" data-translate="manager">Менеджер</span>
+        </a>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-balance-scale"></i>
+                    Fidelity Law
+                </a>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#services" data-translate="nav_services">Послуги</a></li>
+                    <li><a href="#advantages" data-translate="nav_advantages">Переваги</a></li>
+                    <li><a href="#team" data-translate="nav_team">Команда</a></li>
+                    <li><a href="#contact" data-translate="nav_contact">Контакти</a></li>
+                </ul>
+                
+                <div class="nav-controls">
+                    <div class="lang-switcher">
+                        <button class="lang-btn" data-lang="ru">RU</button>
+                        <button class="lang-btn active" data-lang="ua">UA</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                        <button class="lang-btn" data-lang="id">ID</button>
+                    </div>
+                    
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    
+                    <a href="#contact" class="btn-primary" data-translate="header_cta">Зв'язатися</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" data-translate="hero_title">Ваш юридичний партнер в світі девелопменту на Балі</h1>
+                <p class="hero-subtitle" data-translate="hero_subtitle">Повний комплекс юридичних послуг для забудовників та інвесторів. Від due diligence до отримання всіх дозволів.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-primary" data-translate="hero_cta_primary">Отримати консультацію</a>
+                    <a href="#services" class="btn-secondary" data-translate="hero_cta_secondary">Наші послуги</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label" data-translate="hero_stat1">Завершених проектів</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15</span>
+                        <span class="stat-label" data-translate="hero_stat2">Років досвіду</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label" data-translate="hero_stat3">Задоволених клієнтів</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle" data-translate="services_subtitle">Що ми пропонуємо</p>
+                <h2 class="section-title" data-translate="services_title">Наші послуги</h2>
+                <p class="section-description" data-translate="services_description">Повний спектр юридичних послуг для девелоперських проектів на Балі</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3 class="service-title" data-translate="service1_title">Due Diligence земельної ділянки</h3>
+                    <p class="service-description" data-translate="service1_desc">Повна перевірка юридичної чистоти: аналіз прав власності (HGB, Hak Milik, Hak Pakai), перевірка зонування (RDTR), історії прав та обтяжень.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="service-title" data-translate="service2_title">Супровід угоди з власником</h3>
+                    <p class="service-description" data-translate="service2_desc">Переговори з лендлордом, підготовка та узгодження договору оренди, нотаріальне оформлення. Забезпечуємо вигідні та безпечні умови.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3 class="service-title" data-translate="service3_title">Договори з інвесторами</h3>
+                    <p class="service-description" data-translate="service3_desc">Шаблони попередніх договорів (booking, reservation), PPJB – договори купівлі-продажу прав оренди, інвестиційні угоди.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3 class="service-title" data-translate="service4_title">Договори з підрядниками</h3>
+                    <p class="service-description" data-translate="service4_desc">Складання та перевірка підрядних договорів. Захист інтересів замовника – штрафні санкції, терміни, технічні умови.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="service-title" data-translate="service5_title">Отримання дозвільної документації</h3>
+                    <p class="service-description" data-translate="service5_desc">Отримання PBG (будівельний дозвіл), екологічні сертифікати (SPPL, UKL/UPL), реєстрація SLF (сертифікат готовності).</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <h3 class="service-title" data-translate="service6_title">Робота з контрагентами</h3>
+                    <p class="service-description" data-translate="service6_desc">Аналіз договорів з підрядниками, постачальниками та консультантами. Ведення претензійної роботи та врегулювання спорів.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="advantages" id="advantages">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle" data-translate="advantages_subtitle">Чому обирають нас</p>
+                <h2 class="section-title" data-translate="advantages_title">Наші переваги</h2>
+            </div>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-globe-asia"></i>
+                    </div>
+                    <h3 data-translate="advantage1_title">Міжнародний досвід</h3>
+                    <p data-translate="advantage1_desc">Успішні проекти не тільки в Індонезії, але й у Європі. Розуміння міжнародних стандартів та локальної специфіки.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 data-translate="advantage2_title">Глибоке знання законодавства</h3>
+                    <p data-translate="advantage2_desc">Експертиза в індонезійському праві, особливостях регулювання нерухомості та будівництва на Балі.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 data-translate="advantage3_title">Мультимовна команда</h3>
+                    <p data-translate="advantage3_desc">Працюємо українською, російською, англійською та індонезійською мовами. Повне розуміння без мовних бар'єрів.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 data-translate="advantage4_title">Мінімізація ризиків</h3>
+                    <p data-translate="advantage4_desc">Проактивний підхід до захисту ваших інтересів. Попереджаємо проблеми до їх виникнення.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 data-translate="advantage5_title">Оперативність</h3>
+                    <p data-translate="advantage5_desc">Швидке реагування на запити. Розуміємо цінність часу в бізнесі та дотримуємося дедлайнів.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 data-translate="advantage6_title">Індивідуальний підхід</h3>
+                    <p data-translate="advantage6_desc">Кожен проект унікальний. Надаємо персоналізовані юридичні рішення під ваші завдання.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle" data-translate="team_subtitle">Наші експерти</p>
+                <h2 class="section-title" data-translate="team_title">Команда</h2>
+                <p class="section-description" data-translate="team_description">Професіонали з багаторічним досвідом у сфері права та девелопменту</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-photo">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name">Усик Ігор Ігоревич</h3>
+                        <p class="team-position" data-translate="team1_position">Керуючий партнер</p>
+                        <p class="team-bio" data-translate="team1_bio">Адвокат з досвідом понад 15 років в міжнародному праві. Експерт з питань нерухомості в Європі та Індонезії.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name" data-translate="team2_name">Костянтин</h3>
+                        <p class="team-position" data-translate="team2_position">Юридичний радник</p>
+                        <p class="team-bio" data-translate="team2_bio">Спеціаліст з корпоративного права та due diligence. Досвід роботи на Балі з 2018 року.</p>
+                    </div>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-photo">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="team-info">
+                        <h3 class="team-name" data-translate="team3_name">Дарія</h3>
+                        <p class="team-position" data-translate="team3_position">Юридичний радник</p>
+                        <p class="team-bio" data-translate="team3_bio">Експерт з індонезійського законодавства. Забезпечує взаємодію з місцевими органами.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-subtitle" data-translate="contact_subtitle">Зв'яжіться з нами</p>
+                <h2 class="section-title" data-translate="contact_title">Контакти</h2>
+                <p class="section-description" data-translate="contact_description">Готові відповісти на ваші запитання та надати професійну консультацію</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 data-translate="contact_how">Як з нами зв'язатися</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4 data-translate="contact_phone">Телефон</h4>
+                            <p><a href="tel:+380687210541">+380 68 721 05 41</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p><a href="mailto:fidelity.law.general@gmail.com">fidelity.law.general@gmail.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-telegram-plane"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Telegram</h4>
+                            <p><a href="https://t.me/Fidelity_LAW" target="_blank">@Fidelity_LAW</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Telegram Bot</h4>
+                            <p><a href="https://t.me/FidelityBali_bot" target="_blank">@FidelityBali_bot</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4 data-translate="contact_manager">Менеджер</h4>
+                            <p><a href="https://t.me/daria_lawyer_bali" target="_blank">@daria_lawyer_bali</a></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" data-translate="form_name">Ім'я *</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone" data-translate="form_phone">Телефон *</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" data-translate="form_message">Повідомлення *</label>
+                            <textarea id="message" name="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="consent" name="consent" required>
+                            <label for="consent" data-translate="form_consent">Я погоджуюся на обробку персональних даних</label>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit" data-translate="form_submit">Відправити запит</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4 data-translate="footer_about">Про компанію</h4>
+                    <p data-translate="footer_about_text">Fidelity Law & Development - ваш надійний партнер у сфері юридичного супроводу девелоперських проектів на Балі.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://t.me/Fidelity_LAW" target="_blank" class="social-link"><i class="fab fa-telegram-plane"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-translate="footer_services">Послуги</h4>
+                    <ul>
+                        <li><a href="#services">Due Diligence</a></li>
+                        <li><a href="#services" data-translate="footer_service2">Супровід угод</a></li>
+                        <li><a href="#services" data-translate="footer_service3">Дозвільна документація</a></li>
+                        <li><a href="#services" data-translate="footer_service4">Юридичні консультації</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-translate="footer_useful">Корисне</h4>
+                    <ul>
+                        <li><a href="#" data-translate="footer_blog">Блог</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#" data-translate="footer_cases">Кейси</a></li>
+                        <li><a href="#" data-translate="footer_partners">Партнери</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4 data-translate="footer_contacts">Контакти</h4>
+                    <ul>
+                        <li data-translate="footer_phone">Телефон: +380 68 721 05 41</li>
+                        <li>Email: fidelity.law.general@gmail.com</li>
+                        <li>Telegram: @Fidelity_LAW</li>
+                        <li>Bot: @FidelityBali_bot</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p data-translate="footer_copyright">&copy; 2025 Fidelity Law & Development. Всі права захищені.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Translations object
+        const translations = {
+            ru: {
+                // Navigation
+                nav_services: 'Услуги',
+                nav_advantages: 'Преимущества',
+                nav_team: 'Команда',
+                nav_contact: 'Контакты',
+                header_cta: 'Связаться',
+                
+                // Hero
+                hero_title: 'Ваш юридический партнер в мире девелопмента на Бали',
+                hero_subtitle: 'Полный комплекс юридических услуг для застройщиков и инвесторов. От due diligence до получения всех разрешений.',
+                hero_cta_primary: 'Получить консультацию',
+                hero_cta_secondary: 'Наши услуги',
+                hero_stat1: 'Завершенных проектов',
+                hero_stat2: 'Лет опыта',
+                hero_stat3: 'Довольных клиентов',
+                
+                // Services
+                services_subtitle: 'Что мы предлагаем',
+                services_title: 'Наши услуги',
+                services_description: 'Полный спектр юридических услуг для девелоперских проектов на Бали',
+                service1_title: 'Due Diligence земельного участка',
+                service1_desc: 'Полная проверка юридической чистоты: анализ прав собственности (HGB, Hak Milik, Hak Pakai), проверка зонирования (RDTR), истории прав и обременений.',
+                service2_title: 'Сопровождение сделки с владельцем',
+                service2_desc: 'Переговоры с лендлордом, подготовка и согласование договора аренды, нотариальное оформление. Обеспечиваем выгодные и безопасные условия.',
+                service3_title: 'Договоры с инвесторами',
+                service3_desc: 'Шаблоны предварительных договоров (booking, reservation), PPJB – договоры купли-продажи прав аренды, инвестиционные соглашения.',
+                service4_title: 'Договоры с подрядчиками',
+                service4_desc: 'Составление и проверка подрядных договоров. Защита интересов заказчика – штрафные санкции, сроки, технические условия.',
+                service5_title: 'Получение разрешительной документации',
+                service5_desc: 'Получение PBG (строительное разрешение), экологические сертификаты (SPPL, UKL/UPL), регистрация SLF (сертификат готовности).',
+                service6_title: 'Работа с контрагентами',
+                service6_desc: 'Анализ договоров с подрядчиками, поставщиками и консультантами. Ведение претензионной работы и урегулирование споров.',
+                
+                // Advantages
+                advantages_subtitle: 'Почему выбирают нас',
+                advantages_title: 'Наши преимущества',
+                advantage1_title: 'Международный опыт',
+                advantage1_desc: 'Успешные проекты не только в Индонезии, но и в Европе. Понимание международных стандартов и локальной специфики.',
+                advantage2_title: 'Глубокое знание законодательства',
+                advantage2_desc: 'Экспертиза в индонезийском праве, особенностях регулирования недвижимости и строительства на Бали.',
+                advantage3_title: 'Мультиязычная команда',
+                advantage3_desc: 'Работаем на украинском, русском, английском и индонезийском языках. Полное понимание без языковых барьеров.',
+                advantage4_title: 'Минимизация рисков',
+                advantage4_desc: 'Проактивный подход к защите ваших интересов. Предупреждаем проблемы до их возникновения.',
+                advantage5_title: 'Оперативность',
+                advantage5_desc: 'Быстрое реагирование на запросы. Понимаем ценность времени в бизнесе и соблюдаем дедлайны.',
+                advantage6_title: 'Индивидуальный подход',
+                advantage6_desc: 'Каждый проект уникален. Предоставляем персонализированные юридические решения под ваши задачи.',
+                
+                // Team
+                team_subtitle: 'Наши эксперты',
+                team_title: 'Команда',
+                team_description: 'Профессионалы с многолетним опытом в сфере права и девелопмента',
+                team1_position: 'Управляющий партнер',
+                team1_bio: 'Адвокат с опытом более 15 лет в международном праве. Эксперт по вопросам недвижимости в Европе и Индонезии.',
+                team2_name: 'Константин',
+                team2_position: 'Юридический советник',
+                team2_bio: 'Специалист по корпоративному праву и due diligence. Опыт работы на Бали с 2018 года.',
+                team3_name: 'Дария',
+                team3_position: 'Юридический советник',
+                team3_bio: 'Эксперт по индонезийскому законодательству. Обеспечивает взаимодействие с местными органами.',
+                
+                // Contact
+                contact_subtitle: 'Свяжитесь с нами',
+                contact_title: 'Контакты',
+                contact_description: 'Готовы ответить на ваши вопросы и предоставить профессиональную консультацию',
+                contact_how: 'Как с нами связаться',
+                contact_phone: 'Телефон',
+                contact_manager: 'Менеджер',
+                
+                // Form
+                form_name: 'Имя *',
+                form_phone: 'Телефон *',
+                form_message: 'Сообщение *',
+                form_consent: 'Я согласен на обработку персональных данных',
+                form_submit: 'Отправить запрос',
+                
+                // Footer
+                footer_about: 'О компании',
+                footer_about_text: 'Fidelity Law & Development - ваш надежный партнер в сфере юридического сопровождения девелоперских проектов на Бали.',
+                footer_services: 'Услуги',
+                footer_service2: 'Сопровождение сделок',
+                footer_service3: 'Разрешительная документация',
+                footer_service4: 'Юридические консультации',
+                footer_useful: 'Полезное',
+                footer_blog: 'Блог',
+                footer_cases: 'Кейсы',
+                footer_partners: 'Партнеры',
+                footer_contacts: 'Контакты',
+                footer_phone: 'Телефон: +380 68 721 05 41',
+                footer_copyright: '© 2025 Fidelity Law & Development. Все права защищены.',
+                
+                // Floating buttons
+                manager: 'Менеджер'
+            },
+            
+            ua: {
+                // Navigation
+                nav_services: 'Послуги',
+                nav_advantages: 'Переваги',
+                nav_team: 'Команда',
+                nav_contact: 'Контакти',
+                header_cta: "Зв'язатися",
+                
+                // Hero
+                hero_title: 'Ваш юридичний партнер в світі девелопменту на Балі',
+                hero_subtitle: 'Повний комплекс юридичних послуг для забудовників та інвесторів. Від due diligence до отримання всіх дозволів.',
+                hero_cta_primary: 'Отримати консультацію',
+                hero_cta_secondary: 'Наші послуги',
+                hero_stat1: 'Завершених проектів',
+                hero_stat2: 'Років досвіду',
+                hero_stat3: 'Задоволених клієнтів',
+                
+                // Services
+                services_subtitle: 'Що ми пропонуємо',
+                services_title: 'Наші послуги',
+                services_description: 'Повний спектр юридичних послуг для девелоперських проектів на Балі',
+                service1_title: 'Due Diligence земельної ділянки',
+                service1_desc: 'Повна перевірка юридичної чистоти: аналіз прав власності (HGB, Hak Milik, Hak Pakai), перевірка зонування (RDTR), історії прав та обтяжень.',
+                service2_title: 'Супровід угоди з власником',
+                service2_desc: 'Переговори з лендлордом, підготовка та узгодження договору оренди, нотаріальне оформлення. Забезпечуємо вигідні та безпечні умови.',
+                service3_title: 'Договори з інвесторами',
+                service3_desc: 'Шаблони попередніх договорів (booking, reservation), PPJB – договори купівлі-продажу прав оренди, інвестиційні угоди.',
+                service4_title: 'Договори з підрядниками',
+                service4_desc: 'Складання та перевірка підрядних договорів. Захист інтересів замовника – штрафні санкції, терміни, технічні умови.',
+                service5_title: 'Отримання дозвільної документації',
+                service5_desc: 'Отримання PBG (будівельний дозвіл), екологічні сертифікати (SPPL, UKL/UPL), реєстрація SLF (сертифікат готовності).',
+                service6_title: 'Робота з контрагентами',
+                service6_desc: 'Аналіз договорів з підрядниками, постачальниками та консультантами. Ведення претензійної роботи та врегулювання спорів.',
+                
+                // Advantages
+                advantages_subtitle: 'Чому обирають нас',
+                advantages_title: 'Наші переваги',
+                advantage1_title: 'Міжнародний досвід',
+                advantage1_desc: 'Успішні проекти не тільки в Індонезії, але й у Європі. Розуміння міжнародних стандартів та локальної специфіки.',
+                advantage2_title: 'Глибоке знання законодавства',
+                advantage2_desc: 'Експертиза в індонезійському праві, особливостях регулювання нерухомості та будівництва на Балі.',
+                advantage3_title: 'Мультимовна команда',
+                advantage3_desc: 'Працюємо українською, російською, англійською та індонезійською мовами. Повне розуміння без мовних бар'єрів.',
+                advantage4_title: 'Мінімізація ризиків',
+                advantage4_desc: 'Проактивний підхід до захисту ваших інтересів. Попереджаємо проблеми до їх виникнення.',
+                advantage5_title: 'Оперативність',
+                advantage5_desc: 'Швидке реагування на запити. Розуміємо цінність часу в бізнесі та дотримуємося дедлайнів.',
+                advantage6_title: 'Індивідуальний підхід',
+                advantage6_desc: 'Кожен проект унікальний. Надаємо персоналізовані юридичні рішення під ваші завдання.',
+                
+                // Team
+                team_subtitle: 'Наші експерти',
+                team_title: 'Команда',
+                team_description: 'Професіонали з багаторічним досвідом у сфері права та девелопменту',
+                team1_position: 'Керуючий партнер',
+                team1_bio: 'Адвокат з досвідом понад 15 років в міжнародному праві. Експерт з питань нерухомості в Європі та Індонезії.',
+                team2_name: 'Костянтин',
+                team2_position: 'Юридичний радник',
+                team2_bio: 'Спеціаліст з корпоративного права та due diligence. Досвід роботи на Балі з 2018 року.',
+                team3_name: 'Дарія',
+                team3_position: 'Юридичний радник',
+                team3_bio: 'Експерт з індонезійського законодавства. Забезпечує взаємодію з місцевими органами.',
+                
+                // Contact
+                contact_subtitle: "Зв'яжіться з нами",
+                contact_title: 'Контакти',
+                contact_description: 'Готові відповісти на ваші запитання та надати професійну консультацію',
+                contact_how: "Як з нами зв'язатися",
+                contact_phone: 'Телефон',
+                contact_manager: 'Менеджер',
+                
+                // Form
+                form_name: "Ім'я *",
+                form_phone: 'Телефон *',
+                form_message: 'Повідомлення *',
+                form_consent: 'Я погоджуюся на обробку персональних даних',
+                form_submit: 'Відправити запит',
+                
+                // Footer
+                footer_about: 'Про компанію',
+                footer_about_text: 'Fidelity Law & Development - ваш надійний партнер у сфері юридичного супроводу девелоперських проектів на Балі.',
+                footer_services: 'Послуги',
+                footer_service2: 'Супровід угод',
+                footer_service3: 'Дозвільна документація',
+                footer_service4: 'Юридичні консультації',
+                footer_useful: 'Корисне',
+                footer_blog: 'Блог',
+                footer_cases: 'Кейси',
+                footer_partners: 'Партнери',
+                footer_contacts: 'Контакти',
+                footer_phone: 'Телефон: +380 68 721 05 41',
+                footer_copyright: '© 2025 Fidelity Law & Development. Всі права захищені.',
+                
+                // Floating buttons
+                manager: 'Менеджер'
+            },
+            
+            en: {
+                // Navigation
+                nav_services: 'Services',
+                nav_advantages: 'Advantages',
+                nav_team: 'Team',
+                nav_contact: 'Contacts',
+                header_cta: 'Get in Touch',
+                
+                // Hero
+                hero_title: 'Your Legal Partner in Bali Development World',
+                hero_subtitle: 'Complete legal services for developers and investors. From due diligence to obtaining all permits.',
+                hero_cta_primary: 'Get Consultation',
+                hero_cta_secondary: 'Our Services',
+                hero_stat1: 'Completed Projects',
+                hero_stat2: 'Years of Experience',
+                hero_stat3: 'Satisfied Clients',
+                
+                // Services
+                services_subtitle: 'What We Offer',
+                services_title: 'Our Services',
+                services_description: 'Full range of legal services for development projects in Bali',
+                service1_title: 'Land Due Diligence',
+                service1_desc: 'Complete legal verification: analysis of ownership rights (HGB, Hak Milik, Hak Pakai), zoning check (RDTR), history of rights and encumbrances.',
+                service2_title: 'Owner Transaction Support',
+                service2_desc: 'Negotiations with landlord, preparation and approval of lease agreement, notarial registration. We ensure favorable and safe conditions.',
+                service3_title: 'Investor Agreements',
+                service3_desc: 'Templates for preliminary agreements (booking, reservation), PPJB - lease rights purchase agreements, investment agreements.',
+                service4_title: 'Contractor Agreements',
+                service4_desc: 'Drafting and review of construction contracts. Protection of client interests - penalties, deadlines, technical specifications.',
+                service5_title: 'Obtaining Permits',
+                service5_desc: 'Obtaining PBG (building permit), environmental certificates (SPPL, UKL/UPL), SLF registration (certificate of occupancy).',
+                service6_title: 'Counterparty Management',
+                service6_desc: 'Analysis of contracts with contractors, suppliers and consultants. Claims management and dispute resolution.',
+                
+                // Advantages
+                advantages_subtitle: 'Why Choose Us',
+                advantages_title: 'Our Advantages',
+                advantage1_title: 'International Experience',
+                advantage1_desc: 'Successful projects not only in Indonesia but also in Europe. Understanding of international standards and local specifics.',
+                advantage2_title: 'Deep Legal Knowledge',
+                advantage2_desc: 'Expertise in Indonesian law, real estate and construction regulations in Bali.',
+                advantage3_title: 'Multilingual Team',
+                advantage3_desc: 'We work in Ukrainian, Russian, English and Indonesian. Complete understanding without language barriers.',
+                advantage4_title: 'Risk Minimization',
+                advantage4_desc: 'Proactive approach to protecting your interests. We prevent problems before they arise.',
+                advantage5_title: 'Responsiveness',
+                advantage5_desc: 'Quick response to inquiries. We understand the value of time in business and meet deadlines.',
+                advantage6_title: 'Individual Approach',
+                advantage6_desc: 'Each project is unique. We provide personalized legal solutions for your needs.',
+                
+                // Team
+                team_subtitle: 'Our Experts',
+                team_title: 'Team',
+                team_description: 'Professionals with years of experience in law and development',
+                team1_position: 'Managing Partner',
+                team1_bio: 'Attorney with over 15 years of experience in international law. Expert in real estate in Europe and Indonesia.',
+                team2_name: 'Konstantin',
+                team2_position: 'Legal Advisor',
+                team2_bio: 'Corporate law and due diligence specialist. Working in Bali since 2018.',
+                team3_name: 'Daria',
+                team3_position: 'Legal Advisor',
+                team3_bio: 'Expert in Indonesian law. Ensures interaction with local authorities.',
+                
+                // Contact
+                contact_subtitle: 'Contact Us',
+                contact_title: 'Contacts',
+                contact_description: 'Ready to answer your questions and provide professional consultation',
+                contact_how: 'How to Reach Us',
+                contact_phone: 'Phone',
+                contact_manager: 'Manager',
+                
+                // Form
+                form_name: 'Name *',
+                form_phone: 'Phone *',
+                form_message: 'Message *',
+                form_consent: 'I agree to personal data processing',
+                form_submit: 'Send Request',
+                
+                // Footer
+                footer_about: 'About Company',
+                footer_about_text: 'Fidelity Law & Development - your reliable partner in legal support for development projects in Bali.',
+                footer_services: 'Services',
+                footer_service2: 'Transaction Support',
+                footer_service3: 'Permits',
+                footer_service4: 'Legal Consultations',
+                footer_useful: 'Useful',
+                footer_blog: 'Blog',
+                footer_cases: 'Cases',
+                footer_partners: 'Partners',
+                footer_contacts: 'Contacts',
+                footer_phone: 'Phone: +380 68 721 05 41',
+                footer_copyright: '© 2025 Fidelity Law & Development. All rights reserved.',
+                
+                // Floating buttons
+                manager: 'Manager'
+            },
+            
+            id: {
+                // Navigation
+                nav_services: 'Layanan',
+                nav_advantages: 'Keuntungan',
+                nav_team: 'Tim',
+                nav_contact: 'Kontak',
+                header_cta: 'Hubungi Kami',
+                
+                // Hero
+                hero_title: 'Mitra Hukum Anda di Dunia Pengembangan Bali',
+                hero_subtitle: 'Layanan hukum lengkap untuk pengembang dan investor. Dari due diligence hingga mendapatkan semua izin.',
+                hero_cta_primary: 'Dapatkan Konsultasi',
+                hero_cta_secondary: 'Layanan Kami',
+                hero_stat1: 'Proyek Selesai',
+                hero_stat2: 'Tahun Pengalaman',
+                hero_stat3: 'Klien Puas',
+                
+                // Services
+                services_subtitle: 'Apa Yang Kami Tawarkan',
+                services_title: 'Layanan Kami',
+                services_description: 'Rangkaian lengkap layanan hukum untuk proyek pengembangan di Bali',
+                service1_title: 'Due Diligence Tanah',
+                service1_desc: 'Verifikasi hukum lengkap: analisis hak kepemilikan (HGB, Hak Milik, Hak Pakai), pemeriksaan zonasi (RDTR), riwayat hak dan beban.',
+                service2_title: 'Dukungan Transaksi Pemilik',
+                service2_desc: 'Negosiasi dengan pemilik tanah, persiapan dan persetujuan perjanjian sewa, pendaftaran notaris. Kami memastikan kondisi yang menguntungkan dan aman.',
+                service3_title: 'Perjanjian Investor',
+                service3_desc: 'Template untuk perjanjian awal (booking, reservation), PPJB - perjanjian jual beli hak sewa, perjanjian investasi.',
+                service4_title: 'Perjanjian Kontraktor',
+                service4_desc: 'Penyusunan dan review kontrak konstruksi. Perlindungan kepentingan klien - penalti, tenggat waktu, spesifikasi teknis.',
+                service5_title: 'Mendapatkan Izin',
+                service5_desc: 'Mendapatkan PBG (izin bangunan), sertifikat lingkungan (SPPL, UKL/UPL), pendaftaran SLF (sertifikat kelayakan).',
+                service6_title: 'Manajemen Mitra',
+                service6_desc: 'Analisis kontrak dengan kontraktor, pemasok dan konsultan. Manajemen klaim dan penyelesaian sengketa.',
+                
+                // Advantages
+                advantages_subtitle: 'Mengapa Memilih Kami',
+                advantages_title: 'Keuntungan Kami',
+                advantage1_title: 'Pengalaman Internasional',
+                advantage1_desc: 'Proyek sukses tidak hanya di Indonesia tetapi juga di Eropa. Pemahaman standar internasional dan spesifik lokal.',
+                advantage2_title: 'Pengetahuan Hukum Mendalam',
+                advantage2_desc: 'Keahlian dalam hukum Indonesia, peraturan real estat dan konstruksi di Bali.',
+                advantage3_title: 'Tim Multibahasa',
+                advantage3_desc: 'Kami bekerja dalam bahasa Ukraina, Rusia, Inggris dan Indonesia. Pemahaman lengkap tanpa hambatan bahasa.',
+                advantage4_title: 'Minimalisasi Risiko',
+                advantage4_desc: 'Pendekatan proaktif untuk melindungi kepentingan Anda. Kami mencegah masalah sebelum muncul.',
+                advantage5_title: 'Responsif',
+                advantage5_desc: 'Respon cepat terhadap pertanyaan. Kami memahami nilai waktu dalam bisnis dan memenuhi tenggat waktu.',
+                advantage6_title: 'Pendekatan Individual',
+                advantage6_desc: 'Setiap proyek unik. Kami menyediakan solusi hukum yang dipersonalisasi untuk kebutuhan Anda.',
+                
+                // Team
+                team_subtitle: 'Ahli Kami',
+                team_title: 'Tim',
+                team_description: 'Profesional dengan pengalaman bertahun-tahun di bidang hukum dan pengembangan',
+                team1_position: 'Managing Partner',
+                team1_bio: 'Pengacara dengan pengalaman lebih dari 15 tahun dalam hukum internasional. Ahli real estat di Eropa dan Indonesia.',
+                team2_name: 'Konstantin',
+                team2_position: 'Penasihat Hukum',
+                team2_bio: 'Spesialis hukum korporat dan due diligence. Bekerja di Bali sejak 2018.',
+                team3_name: 'Daria',
+                team3_position: 'Penasihat Hukum',
+                team3_bio: 'Ahli hukum Indonesia. Memastikan interaksi dengan pihak berwenang setempat.',
+                
+                // Contact
+                contact_subtitle: 'Hubungi Kami',
+                contact_title: 'Kontak',
+                contact_description: 'Siap menjawab pertanyaan Anda dan memberikan konsultasi profesional',
+                contact_how: 'Cara Menghubungi Kami',
+                contact_phone: 'Telepon',
+                contact_manager: 'Manajer',
+                
+                // Form
+                form_name: 'Nama *',
+                form_phone: 'Telepon *',
+                form_message: 'Pesan *',
+                form_consent: 'Saya setuju dengan pemrosesan data pribadi',
+                form_submit: 'Kirim Permintaan',
+                
+                // Footer
+                footer_about: 'Tentang Perusahaan',
+                footer_about_text: 'Fidelity Law & Development - mitra terpercaya Anda dalam dukungan hukum untuk proyek pengembangan di Bali.',
+                footer_services: 'Layanan',
+                footer_service2: 'Dukungan Transaksi',
+                footer_service3: 'Izin',
+                footer_service4: 'Konsultasi Hukum',
+                footer_useful: 'Berguna',
+                footer_blog: 'Blog',
+                footer_cases: 'Kasus',
+                footer_partners: 'Mitra',
+                footer_contacts: 'Kontak',
+                footer_phone: 'Telepon: +380 68 721 05 41',
+                footer_copyright: '© 2025 Fidelity Law & Development. Hak cipta dilindungi.',
+                
+                // Floating buttons
+                manager: 'Manajer'
+            }
+        };
+
+        // Language switching functionality
+        let currentLang = 'ua';
+        
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('selectedLanguage', lang);
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+            
+            // Update active language button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Update page language attribute
+            document.documentElement.lang = lang === 'ua' ? 'uk' : lang;
+        }
+        
+        // Initialize language from localStorage or default
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('selectedLanguage') || 'ua';
+            setLanguage(savedLang);
+            
+            // Add click handlers to language buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    setLanguage(lang);
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            
+            // Here you would normally send the data to your server
+            // For now, we'll just show an alert
+            const messages = {
+                ru: 'Спасибо за ваш запрос! Мы свяжемся с вами в ближайшее время.',
+                ua: "Дякуємо за ваш запит! Ми зв'яжемося з вами найближчим часом.",
+                en: 'Thank you for your request! We will contact you soon.',
+                id: 'Terima kasih atas permintaan Anda! Kami akan segera menghubungi Anda.'
+            };
+            
+            alert(messages[currentLang]);
+            contactForm.reset();
+        });
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
